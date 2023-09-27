@@ -23,7 +23,7 @@ public class RegForm {
         $("#currentAddress").setValue("Some address 1");
         $("#permanentAddress").setValue("Another address 1");
         $("#submit").click();
-
+        //check values in fill
         $("#output").$("#name").shouldHave(text("IP"));
         $("#output #name").shouldHave(text("IP"));
         $("#output #email").shouldHave(text("vanusezzz@gmail.com"));
