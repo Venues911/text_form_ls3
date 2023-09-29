@@ -11,7 +11,7 @@ public class RegForm {
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
-    }
+        Configuration.pageLoadStrategy = "eager"; }
 
     @Test
     void fillFormTest() {
@@ -20,6 +20,11 @@ public class RegForm {
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form)"));
         $("#userName").setValue("IP");
         $("#userEmail").setValue("vanusezzz@gmail.com");
+
+        $("#gender-radio-1").parent().click(); // or $(byText("Male")).click();
+
+
+
         $("#currentAddress").setValue("Some address 1");
         $("#permanentAddress").setValue("Another address 1");
         $("#submit").click();
@@ -30,4 +35,4 @@ public class RegForm {
         $("#output #currentAddress").shouldHave(text("Some address 1"));
         $("#output #permanentAddress").shouldHave(text("Another address 1"));
     }
-    }
+}
