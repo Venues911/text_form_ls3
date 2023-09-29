@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
+import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
@@ -31,7 +32,7 @@ public class RegForm {
         $("#userEmail").setValue("vanusezzz@gmail.com");
 
         $("#gender-radio-1").parent().click(); // or .$(byText("Male")).click();
-        $("#userNumber").setValue("+79997998872");
+        $("#userNumber").setValue("79997998872");
 
 
         $("#dateOfBirthInput").click();
@@ -49,6 +50,12 @@ public class RegForm {
         $("#city").click();
         $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("#submit").click();
+
+        $(".modal-dialog").should(appear);
+        $(".example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+
+        $(".table-responsive").shouldHave(text("IP"),text("AN"),text("vanusezzz@gmail.com"));
+
 
     }
 }
