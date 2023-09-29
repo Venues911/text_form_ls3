@@ -1,4 +1,5 @@
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -22,6 +23,8 @@ public class RegForm {
     @Test
     void fillFormTest() {
         open("/automation-practice-form");
+        Selenide.executeJavaScript("$('#fixedban').remove()"); // remove banner
+        Selenide.executeJavaScript("$('footer').remove()"); // remove banner
 
         $("#firstName").setValue("IP");
         $("#lastName").setValue("AN");
@@ -41,6 +44,11 @@ public class RegForm {
 //        $("#uploadPicture").uploadFile(new File("src/test/resources/img/1.png"));
         $("#uploadPicture").uploadFromClasspath ("img/1.png");
         $("#currentAddress").setValue("Some address 1");
+        $("#state").click();
+        $("#stateCity-wrapper").$(byText("NCR")).click();
+        $("#city").click();
+        $("#stateCity-wrapper").$(byText("Delhi")).click();
+        $("#submit").click();
 
     }
 }
