@@ -31,7 +31,7 @@ public class RegForm {
         $("#lastName").setValue("AN");
         $("#userEmail").setValue("vanusezzz@gmail.com");
 
-        $("#gender-radio-1").parent().click(); // or .$(byText("Male")).click();
+        $("#genterWrapper").$(byText("Male")).click(); // or .$(byText("Male")).click();
         $("#userNumber").setValue("79997998872");
 
 
@@ -54,7 +54,11 @@ public class RegForm {
         $(".modal-dialog").should(appear);
         $(".example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
 
-        $(".table-responsive").shouldHave(text("IP"),text("AN"),text("vanusezzz@gmail.com"));
+        $(".table-responsive").shouldHave(text("IP"));
+        $(".table-responsive").shouldHave(text("AN"));
+        $(".table-responsive").shouldHave(text("vanusezzz@gmail.com"));
+
+        ;
 
 
     }
