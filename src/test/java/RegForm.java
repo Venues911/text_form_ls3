@@ -17,7 +17,7 @@ public class RegForm {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
-//        Configuration.holdBrowserOpen=true;
+        Configuration.holdBrowserOpen=true;
 
     }
 
@@ -52,14 +52,19 @@ public class RegForm {
         $("#submit").click();
 
         $(".modal-dialog").should(appear);
-        $(".example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
 
         $(".table-responsive").shouldHave(text("IP"));
         $(".table-responsive").shouldHave(text("AN"));
         $(".table-responsive").shouldHave(text("vanusezzz@gmail.com"));
-
-        ;
-
+        $(".table-responsive").shouldHave(text("Male"));
+        $(".table-responsive").shouldHave(text("7999799887"));
+        $(".table-responsive").shouldHave(text("02 September,1997"));
+        $(".table-responsive").shouldHave(text("Maths"));
+        $(".table-responsive").shouldHave(text("Sports"));
+        $(".table-responsive").shouldHave(text("1.png"));
+        $(".table-responsive").shouldHave(text("Some address 1"));
+        $(".table-responsive").shouldHave(text("NCR Delhi"));
 
     }
 }
