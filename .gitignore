@@ -9,5 +9,4 @@ build/
 *.ipr
 
 .gradle
-
 *.log
