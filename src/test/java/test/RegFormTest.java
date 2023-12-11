@@ -6,11 +6,11 @@ import org.junit.jupiter.api.Test;
 
 public class RegFormTest extends TestBase {
 
-    private static final String endPoint = "/automation-practice-form";
+    private static final String ENDPOINT = "/automation-practice-form";
     RegistrationPage registrationPage = new RegistrationPage();
     @Test
     void fillFormTest() {
-        registrationPage.openThePage(endPoint).
+        registrationPage.openThePage(ENDPOINT).
             setFirstName("Ivan").
             setLastName("Pugachev").
             setEmail("somemail@g.com").
