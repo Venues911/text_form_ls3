@@ -2,36 +2,35 @@ package test;
 
 import components.RegistrationPage;
 import org.junit.jupiter.api.Test;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
+
 
 public class RegFormTest extends TestBase {
 
     private static final String endPoint = "/automation-practice-form";
+    RegistrationPage registrationPage = new RegistrationPage();
     @Test
     void fillFormTest() {
-    RegistrationPage.openThePage(endPoint).
+        registrationPage.openThePage(endPoint).
             setFirstName("Ivan").
             setLastName("Pugachev").
             setEmail("somemail@g.com").
             setGender("Male").
-            setNumber("89999999988").
-            setDateOfBirth("02","02","1999").
+            setNumber("89999999999").
+            setDateOfBirth("11","October","2011").
             setSubject("Maths").
             setHobbies("Sports").
-            uploadPicture("1.png").
+            uploadPicture("img/1.png").
             setAddress("Some address 1").
             setState("NCR").
             setCity("Delhi").
             clickSubmit();
 
-    RegistrationPage.verifyFinalResult().
+        registrationPage.verifyFinalResult().
             verifyResult("Student Name","Ivan Pugachev").
             verifyResult("Student Email", "somemail@g.com").
             verifyResult("Gender", "Male").
-            verifyResult("Mobile", "89999999988").
-            verifyResult("Date of Birth", "02","02","1999").
+            verifyResult("Mobile", "8999999999").
+            verifyResult("Date of Birth", "11 October,2011").
             verifyResult("Subjects", "Maths").
             verifyResult("Hobbies", "Sports").
             verifyResult("Picture", "1.png").

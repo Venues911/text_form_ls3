@@ -4,7 +4,6 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 
 public class TestBase {
-    RegFormTest registrationFormTest = new RegFormTest();
 
     @BeforeAll
     static void beforeAll() {

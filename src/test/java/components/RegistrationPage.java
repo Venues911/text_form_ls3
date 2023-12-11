@@ -1,21 +1,25 @@
 package components;
 
+
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class RegistrationPage extends RemoveBanner {
+public class RegistrationPage {
 
     /// Selenide Elements
 
     CalendarComponent calendar = new CalendarComponent();
     CheckResult finalResult = new CheckResult();
-
+    public void removeBanner() {
+        Selenide.executeJavaScript("$('#fixedban').remove()"); // remove banner
+        Selenide.executeJavaScript("$('footer').remove()"); // remove banner
+    }
 
     SelenideElement
-        lable = $(".practice-form-wrapper"),
         firstName = $("#firstName"),
         lastName = $("#lastName"),
         email = $("#userEmail"),
@@ -34,8 +38,6 @@ public class RegistrationPage extends RemoveBanner {
 
 
     ////Elements
-
-
 public RegistrationPage openThePage(String url) {
         open(url);
         removeBanner();
@@ -58,7 +60,7 @@ public RegistrationPage setEmail(String value) {
     }
 
 public RegistrationPage setGender(String value) {
-    gender.$(byText("value")).click();
+    gender.$(byText(value)).click();
     return this;
     }
 public RegistrationPage setNumber(String value) {
@@ -67,7 +69,7 @@ public RegistrationPage setNumber(String value) {
     }
 public RegistrationPage setDateOfBirth(String day, String month, String year) {
     dateOfBirth.click();
-    calendar.setDateMethod(day, month, year);
+    calendar.setDateMethod("11", "October", "2011");
     return this;
     }
 public RegistrationPage setSubject(String value) {
@@ -79,7 +81,7 @@ public RegistrationPage setHobbies(String value) {
     return this;
     }
 public RegistrationPage uploadPicture(String value) {
-    picture.uploadFromClasspath (value);
+    picture.uploadFromClasspath(value);
     return this;
     }
 
@@ -101,7 +103,7 @@ public RegistrationPage clickSubmit() {
     submitButton.click();
     return this;
     }
-public RegistrationPage verifyFinalResult(String value) {
+public RegistrationPage verifyFinalResult() {
     finalResult.modalDialog();
     return this;
     }
