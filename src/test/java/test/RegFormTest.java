@@ -38,7 +38,7 @@ public class RegFormTest extends TestBase {
         String fakeEmail = faker.internet().emailAddress();
         String fakeGender = faker.demographic().sex();
         String fakerNumber = faker.phoneNumber().subscriberNumber(10);
-        String fakerSubject = faker.medical().hospitalName();
+        String fakerSubject = faker.witcher().witcher();
         String fakeAdress = faker.address().streetAddress();
 
 
@@ -54,8 +54,7 @@ public class RegFormTest extends TestBase {
             setNumber(fakerNumber).
             setDateOfBirth("11" , "09", "2000").
             setSubject(fakerSubject).
-            setHobbies(getRandomHobbies()).
-            uploadPicture("img/1.png").
+            setHobbies(getRandomHobbies()).uploadPicture("img/1.png").
             setAddress(fakeAdress).
             setState("NCR").
             setCity("Noida").
